@@ -1,0 +1,145 @@
+[11/04/2020]
+
+
+Primeira versão
+
+
+________________________________________________________________________________
+
+
+[22/04/2020]
+
+
+Adicionadas 2 features novas:
+
+ -> Sorteios:
+
+Com o comando "!sorteio start [preço]" é possível criar sorteios com a
+participação pela compra de tickets. Os tickets têm um preço que é definido no
+1º parâmetro.
+
+A compra de tickets é realizada com o comando "!sorteio [tickets]". Não existe
+máximo de tickets a comprar.
+
+Para terminar um sorteio é preciso digitar "!sorteio end". Assim que for
+digitado, será feito o sorteio do vencedor.
+
+
+ -> Comandos personalizados:
+
+Os comandos personalizados podem ser criados com o comando
+"!addcom [nome] [resposta]". Estes comandos ainda são bastante simples e não
+permitem a criação de contadores e derivados.
+
+Se o nome do comando criado for igual a algum já existente, este será editado.
+
+Eliminar comandos personalizados requer o uso do comando "!delcom [nome]".
+
+
+________________________________________________________________________________
+
+
+[26/04/2020]
+
+
+Comandos personalizados suportam agora contadores.
+Para criar um contador basta escrever na frase de resposta "${cont}". É possível
+adicionar quantos contadores quiser na mesma frase.
+
+Agora é possível mudar o nome dos pontos.
+Para alterar o nome é necessário editar o ficheiro "points", o comando para
+configurar não permite editar o nome, apenas a quantidade e o tempo.
+
+
+________________________________________________________________________________
+
+
+[01/05/2020]
+
+
+Agora ao digitar apenas "!translate" o bot manda o link dos idiomas suportados.
+
+Comando de uptime adicionado: "!uptime".
+
+Ao digitar "!comandos" o bot irá mandar um sussuro com todos os comandos
+disponíveis, comandos personalizados incluídos.
+
+Adicionada 2 novas features:
+
+ -> Loja:
+
+Adicione itens na loja com o comando "!additem [preço] [quantidade] [nome]".
+Sempre que um item for comprado, a quantidade disponível será decrementada.
+Quando chegar a 0 o item ficará esgotado e será apagado.
+Se a quantidade for "-1", o item será infinito e nunca se esgotará.
+
+Será atribuído um ID a cada item adicionado. Esse ID servirá para a comprar e
+apagar itens.
+
+Para comprar um item deverá digitar "!comprar [ID]".
+
+Para apagar um item deverá digitar "!delcom [ID]".
+
+Se digitar "!loja" o bot irá mandar por sussuro todos os itens disponíveis.
+
+
+ -> Minigames de casino:
+
+Os minigames de casino não têm suporte visual.
+
+O único minigame adicionado foi a roleta.
+
+Para apostar basta digitar "!roleta [points]". A percentagem de vitória é
+definida no ficheiro "percentagens" na pasta "info". O valor deverá estar entre
+0 e 100.
+
+
+________________________________________________________________________________
+
+
+[05/05/2020]
+
+
+Foram renoemados alguns comandos para evitar o conflito com outros bots:
+	"addcom"  -> "adccom"
+	"delcom"  -> "remcom"
+	"additem" -> "adcitem"
+	"delitem" -> "remitem"
+
+
+________________________________________________________________________________
+
+
+[09/06/2020]
+
+
+Reparado o problema relacionado ao minigame dos copos onde não eram devidamente
+mostrados os vencedores nem distribuídos os pontos.
+
+
+________________________________________________________________________________
+
+
+[13/08/2020]
+
+Adicionado uma opção de máximo de tickets que podem ser comprados durantes os
+sorteios: "!sorteio start [preço] [máximo]".
+
+Adicionados alertas de sub, resub, cheer e raid com rewards. Os rewards podem
+ser alterados no ficheiro "info/rewards.json". O reward de raid é por pessoa e
+só é distribuído caso seja uma raid de 2 ou mais.
+
+Corrigidos erros de ortografia e ordem de passos incorreta do README.
+
+
+________________________________________________________________________________
+
+
+[18/10/2020]
+
+Adicionado electron à programação do bot.
+
+Agora ao iniciar o bot, irá abrir uma janela onde o utilizador terá que iniciar
+sessão na twitch, para permitir o bot de conectar à conta e ao chat. Por
+enquanto, a conta da live terá de ser a mesma conta disponibilizada para o bot.
+Ao iniciar sessão, a janela irá redirecionar para o chat da live.
