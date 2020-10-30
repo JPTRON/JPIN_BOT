@@ -77,7 +77,7 @@ function boot()
                 {
                     token: token,
                     login: login,
-                    id: id
+                    id: +id
                 };
 
                 fs.writeFileSync(__dirname + '/electron-info/credentials.json', JSON.stringify(credentials, null, 2));
