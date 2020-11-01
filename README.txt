@@ -1,13 +1,14 @@
 Passos para a utilização do bot:  1- Ler o ficheiro "CHANGELOG"
-				  2- Abrir a pasta "resources"
-				  3- Abrir a pasta "app"
-				  4- Abrir a pasta "info"
-				  5- Editar o ficheiro "info" com o prefixo desejado
-				  6- (Opcional) Editar os ficheiros "gatoSetup", "points", "social" (Tem comandos para a configuração destes ficheiros)
-				  7- (Opcional) Editar o ficheiro "reward"
-				  8- Editar o ficheiro "percentagens" para alterar a percentagem de vitória dos minigames de casino (0 - 100)
-				  9- Voltar para a pasta "JPIN_BOT"
-				  10- Executar "jpin_bot-2.0.exe"
+				  2- Abrir a pasta app-[x.x.x]
+				  3- Abrir a pasta "resources"
+				  4- Abrir a pasta "app"
+				  5- Abrir a pasta "info"
+				  6- Editar o ficheiro "info" com o prefixo desejado
+				  7- (Opcional) Editar os ficheiros "gatoSetup", "points", "social" (Tem comandos para a configuração destes ficheiros)
+				  8- (Opcional) Editar o ficheiro "reward"
+				  9- Editar o ficheiro "percentagens" para alterar a percentagem de vitória dos minigames de casino (0 - 100)
+				  10- Voltar para a pasta "JPIN-Bot"
+				  11- Executar "JPIN-Bot.exe"
 				  12- (Opcional) Criar um Browser Source no obs com o endereço "localhost:8080" para poder jogar os minigames com suporte visual
 
 
