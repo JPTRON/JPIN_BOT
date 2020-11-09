@@ -81,36 +81,42 @@ function boot()
                 };
 
                 fs.writeFileSync(__dirname + '/electron-info/credentials.json', JSON.stringify(credentials, null, 2));
+                ID();
             })
             .catch(e => 
             {
                 console.log(e);
             });
-
-            axios.get(`https://api.twitch.tv/kraken/channels/${credentials.id}`, 
+	
+            function ID()
             {
-                headers: {Accept: 'application/vnd.twitchtv.v5+json',
-                'Client-ID': 'kis6cdz6giaoxfz6u0453x797jz7xx'
-                }
-            })
-            .then(function (response) 
-            {
-                let displayname = response.data.display_name;
-                
-                info = 
+                    axios.get(`https://api.twitch.tv/kraken/channels/${credentials.id}`, 
                 {
-                    Channel: displayname,
-                    Prefix: prefix
-                }
+                    headers: {Accept: 'application/vnd.twitchtv.v5+json',
+                    'Client-ID': 'kis6cdz6giaoxfz6u0453x797jz7xx'
+                    }
+                })
+                .then(function (response) 
+                {
+                    let displayname = response.data.display_name;
+                    
+                    info = 
+                    {
+                        Channel: displayname,
+                        Prefix: prefix
+                    }
 
-                fs.writeFileSync(__dirname + '/info/info.json', JSON.stringify(info, null, 2));
-                win.loadURL(`https://www.twitch.tv/${displayname}/chat?darkpopout`);
-                require(__dirname + '/bot.js');               
-            })
-            .catch(e => 
-            {
-                console.log(e);
-            });
+                    fs.writeFileSync(__dirname + '/info/info.json', JSON.stringify(info, null, 2));
+                    win.loadURL(`https://www.twitch.tv/${displayname}/chat?darkpopout`);
+                    require(__dirname + '/bot.js');               
+                })
+                .catch(e => 
+                {
+                    console.log(e);
+                    ID();
+                });
+            };
+            
         };
     });     
 
