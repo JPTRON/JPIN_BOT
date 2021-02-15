@@ -56,7 +56,6 @@ client.on('connected', function(address, port) {
 			viewer[username].online = 0;
 	};
 
-	client.say(channel, "/color Red");
 	client.say(channel, "/me Acabei de me conectar a este canal!");
 
 });
@@ -86,7 +85,7 @@ client.on('message', async function(channel, user, message, self) {
 	} catch(err) {
 		//console.log(err);
 
-		var mycommands = fs.readFileSync(__dirname + '/customcommands.json');
+		var mycommands = fs.readFileSync(__dirname + '/data/customcommands.json');
 		var customcommands = JSON.parse(mycommands);
 		var comkeys = Object.keys(customcommands);
 
@@ -96,7 +95,7 @@ client.on('message', async function(channel, user, message, self) {
 				if(customcommands[command].hasOwnProperty("contador")){
 
 					customcommands[command].contador++;
-					fs.writeFileSync(__dirname + '/customcommands.json', JSON.stringify(customcommands, null, 2));
+					fs.writeFileSync(__dirname + '/data/customcommands.json', JSON.stringify(customcommands, null, 2));
 
 					var camp = customcommands[command].resposta.split(" ");
 
