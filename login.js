@@ -3,7 +3,7 @@ const fs = require('fs');
 const axios = require('axios');
 const url = require('url');
 
-const myurl = 'https://id.twitch.tv/oauth2/authorize?client_id=kis6cdz6giaoxfz6u0453x797jz7xx&redirect_uri=http://localhost&response_type=token&scope=chat:read+chat:edit+channel:manage:broadcast';
+const myurl = 'https://id.twitch.tv/oauth2/authorize?client_id=kis6cdz6giaoxfz6u0453x797jz7xx&redirect_uri=http://localhost&response_type=token&scope=chat:read+chat:edit+channel:manage:broadcast+whispers:edit';
 
 var myCredentials = fs.readFileSync(__dirname + '/electron-info/credentials.json');
 var credentials = JSON.parse(myCredentials);
@@ -19,12 +19,12 @@ var prefix = info.Prefix;
 var redirects = 0;
 
 function boot()
-{
-    win = new BrowserWindow
+{  
+   var win = new BrowserWindow
     ({
-        width: 800,
-        height: 600,
-        resizable: false
+        width: 400,
+        height: 650,
+        resizable: true
     });
 
     win.removeMenu();
@@ -32,7 +32,7 @@ function boot()
 
     const ses = win.webContents.session;
     ses.clearStorageData();
-  
+
     dialog.showErrorBox = function(title, content) {}; 
 
     /*if(token)
