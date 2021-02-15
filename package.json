@@ -1,16 +1,19 @@
 {
-  "name": "jpin_bot-2.0",
+  "name": "JPIN_BOT",
+  "productName": "JPIN_BOT",
   "version": "2.3.0",
   "description": "Twitch chat bot",
   "main": "login.js",
   "scripts": {
-    "start": "electron login.js"
+    "start": "electron login.js",
+    "dist": "electron-builder"
   },
+  "repository": "https://github.com/JPTRON/JPIN_BOT",
   "author": "JPTRON",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.20.0",
-    "electron-builder": "^22.9.1",
+    "axios": "^0.21.1",
+    "electron-compile": "^6.4.4",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "fs": "0.0.1-security",
@@ -22,6 +25,15 @@
     "url": "^0.11.0"
   },
   "devDependencies": {
-    "electron": "^10.1.3"
+    "electron": "^10.3.2",
+    "electron-builder": "^22.9.1",
+    "electron-prebuilt-compile": "8.2.0"
+  },
+  "build": {
+    "appId": "com.jptron.jpin_bot.app",
+    "asar" : "false",
+    "win": {
+      "target": "NSIS"
+    }
   }
 }
