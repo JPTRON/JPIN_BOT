@@ -15,6 +15,7 @@ module.exports = {
     }
 
     const app = express();
+    app.set("views", __dirname + "/views");
     var generated = Math.floor(Math.random() * 3) + 1;
     genNum = generated;
 
@@ -41,6 +42,7 @@ module.exports = {
   EndMinigame: function(){
     server.close();
     const app = express();
+    app.set("views", __dirname + "/views");
     app.engine('handlebars', exphbs());
     app.set('view engine', 'handlebars');
 
@@ -58,6 +60,7 @@ module.exports = {
       server.close();
     }
     const app = express();
+    app.set("views", __dirname + "/views");
     app.engine('handlebars', exphbs());
     app.set('view engine', 'handlebars');
 
