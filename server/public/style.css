@@ -1,0 +1,30 @@
+.mediaContainer
+{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.videoPlayer 
+{
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: transparent;
+}
+
+.videoPlayer video
+{
+    object-fit: contain;
+    background-size: contain;
+    box-sizing: content-box;
+    width: 100vw;
+    height: 100vh;
+}

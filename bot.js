@@ -27,6 +27,7 @@ function botStart()
 
 	//Consts
 	const active = new Map();
+	const mediaHandler = require(__dirname + '/server/mediaHandler.js');
 
 	//Vars / Lets
 	let prefix = info.Prefix;
@@ -44,9 +45,9 @@ function botStart()
 	// ON START
 	console.log(info);
 	console.log(pointconfig);
-	var server = require(__dirname + '/server.js');
+	require(__dirname + '/server/server.js');
 	client.connect();
-	server.HoldServer();
+	//server.HoldServer();
 
 
 	client.on('connected', function(address, port) {		
@@ -83,6 +84,7 @@ function botStart()
 			viewer = JSON.parse(data);			
 
 			runCustomCom(command);
+			runMediaRequest(command);
 
 			let commands = require(__dirname + '/commands/' + command + '.js');
 			commands.run(client, channel, user, message, self, args, ops, viewer);
@@ -120,6 +122,31 @@ function botStart()
 			};
 		};
 	};
+
+	// Run Media Request
+	function runMediaRequest(media)
+	{
+		fs.readdir(__dirname + '/media', (err, files) => {
+			for(i = 0; i < files.length; i++)
+			{
+				if(media === files[i].split('.').shift())
+				{
+					if(/\.(mp4|webm)$/i.test("." + files[i].split('.').pop()))
+					{
+						mediaHandler.send(files[i], "video");
+					}
+					else if(/\.(mp3|aac|ogg|flac|wav)$/i.test("." + files[i].split('.').pop()))
+					{
+						mediaHandler.send(files[i], "sound");
+					}
+					else if(/\.(png|jpeg|jpg|gif|apng)$/i.test("." + files[i].split('.').pop()))
+					{
+						mediaHandler.send(files[i], "image");
+					}
+				}
+			};
+		});
+	}
 
 	// DATA
 	function createUserData(user){
