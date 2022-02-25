@@ -38,7 +38,7 @@ exports.run = async function adcitem(client, channel, user, message, self, args,
 			return;
 		};
 		
-		if(quantity >= 0){
+		if(quantity > 0){
 			outputQuant = quantity;
 			var novoItem = {
 				Id: loja.contador,
@@ -46,7 +46,7 @@ exports.run = async function adcitem(client, channel, user, message, self, args,
 				Price: price,
 				Quantity: quantity
 			};
-		} else if(quantity === -1){
+		} else if(quantity === 0){
 			outputQuant = "infinito";
 			var novoItem = {
 				Id: loja.contador,

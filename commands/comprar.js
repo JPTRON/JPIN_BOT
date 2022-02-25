@@ -29,7 +29,6 @@ exports.run = async function comprar(client, channel, user, message, self, args,
 		};
 
 		for(i = 0; i < itemkeys.length; i++){
-		console.log(item[i]);
 			if(id === item[i].Id){
 				equal = 1;
 				y = i;

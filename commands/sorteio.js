@@ -1,4 +1,4 @@
-// !sorteio [tickets] | !sorteio start [setprice] [max]
+// !sorteio [tickets] | !sorteio start [setprice] [max] | !sorteio end
 
 const fs = require('fs');
 

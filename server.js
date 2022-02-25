@@ -6,7 +6,6 @@ const port = 8080;
 var server;
 var genNum;
 var alreadyStarted = 0;
-console.log("server:" + __dirname);
 
 module.exports = {
   StartServer: function(){

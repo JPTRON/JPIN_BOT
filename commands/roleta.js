@@ -40,7 +40,7 @@ exports.run = async function roleta(client, channel, user, message, self, args, 
 			return;
 		};
 
-		if(generated <= percentagem.roleta){
+		if(generated <= percentagem.Roleta){
 			viewer[user['username']].points += + quantity;
 			fs.writeFileSync(__dirname + '/../data/data.json', JSON.stringify(viewer, null, 2));
 			client.say(channel, "/me PARABÉNS " + user['username'] + " : acabou de ganhar " + quantity + " " + pointconfig.Name + " na roleta.");
