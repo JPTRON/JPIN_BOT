@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+    <script>window.$ = window.jQuery = require('jquery');</script>
+    <link rel="stylesheet" href="style.css">
+
+    <title>JPIN_BOT</title>
+</head>
+
+<body>
+    <div class="topnav">
+        <div class="tab active">HOME</div>
+        <div class="tab">CONFIG</div>
+        <div class="tab">COMANDOS</div>
+        <div class="tab">DATA</div>
+        <div class="refresh" onclick="refresh();">🗘</div>
+    </div>
+
+    <div class="container">
+        <div id="home" class="page active">
+            <div id="loginPage">
+                <div id="channel-login">
+                    <p>Conectado ao canal:</p>
+                    <input type="text" id="channel-name" value="" readonly>
+                    <button id="channel-connect" value="0">Conectar</button>
+                    <button id="channel-logOut" value="0" style="display: none;">Log Out</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="config" class="page">
+            <br>
+
+            <form id="configForm" onsubmit="return false">
+                <div id="info">
+                    Prefixo: <input type="text" id="prefix" value=""><br>
+                </div>
+                <br>
+                <div id="rewards">
+                    <h4>Recompensas</h4>
+                    Bit: <input type="number" min="0" id="bit" value="" step="1" required><br>
+                    Sub: <input type="number" min="0" id="sub" value="" step="1" required><br>
+                    Raid: <input type="number" min="0" id="raid" value="" step="1" required><br>
+                </div>
+                <br>
+                <div id="percentagens">
+                    <h4>Percentagens dos minijogos</h4>
+                    Roleta: <input type="number" min="0" id="roleta" value="" step="1" required> %<br>
+                </div>
+                <br>
+                <div id="gatoSetup">
+                    <h4>Jogo do gato</h4>
+                    Tempo: <input type="number" min="0" id="timer" value="" step="1" required> segundos<br>
+                    Prémio: <input type="number" min="0" id="reward" value="" step="1" required><br>
+                </div>
+                <br>
+                <div id="points">
+                    <h4>Pontos</h4>
+                    Nome: <input type="text" id="name" value="" required><br>
+                    Quantidade: <input type="number" min="0" id="quantity" value="" step="1" required><br>
+                    Minutos: <input type="number" min="0" id="minutes" value="" step="1" required><br>
+                </div>
+                <br><br>
+                <button type="submit" id="save">Gravar</button>
+            </form>
+        </div>
+
+        <div id="comandos" class="page">      
+            <label for="comandos1">
+                <h2>Comandos</h2>
+
+                <div id="comandos1" name="comandos1" class="segment">
+
+                </div>
+            </label>
+            <br>
+            <form id="commandsForm" onsubmit="return false">
+                <label for="comandos2">
+                    <h2>Comandos Personalizados</h2>
+
+                    <div id="comandos2" name="comandos2" class="segment">
+
+                    </div>
+
+                    <button id="ComCreate" onclick="createCom();">+</button>
+                </label>
+                <br><br>
+                <button type="submit" id="ComSave">Gravar</button>
+            </form>
+        </div>
+
+        <div id="data" class="page">
+            <form id="pointsForm" onsubmit="return false">
+                <label for="DataPoints">
+                    <h2>Pontos</h2>
+
+                    <div id="DataPoints" name="DataPoints" class="segment">
+
+                    </div>
+                    <button type="submit" id="pointsSave">Gravar</button>
+                </label>
+            </form>
+
+            <form id="storeForm" onsubmit="return false">
+                <label for="DataStore">
+                    <h2>Loja</h2>
+
+                    <div id="DataStore" name="DataStore" class="segment">
+
+                    </div>
+                    <button id="itemCreate" onclick="createItem();">+</button>
+                    <br><br>
+                    <button type="submit" id="storeSave">Gravar</button>
+                </label>
+            </form>
+
+            <form id="giveawayForm" onsubmit="return false">
+                <label for="DataGiveaway">
+                    <h2>Sorteio</h2>
+
+                    <div id="DataGiveaway" name="DataGiveaway" class="segment">
+
+                    </div>
+                    <button id="giveawayTurn" onclick="turn();">ON</button>
+                </label>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+<script src="switch.js"></script>
+<script src="channelConnect.js"></script>
+<script src="logOut.js"></script>
+<script src="config.js"></script>
+<script src="commands.js"></script>
+<script src="data.js"></script>
+<script src="find.js"></script>
+
+<script>
+    function refresh()
+    {
+        clear();
+        clearData();
+    }
+</script>
+</html>
