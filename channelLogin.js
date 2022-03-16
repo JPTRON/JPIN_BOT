@@ -76,9 +76,10 @@ function boot()
 
             function ID()
             {
-                axios.get(`https://api.twitch.tv/kraken/channels/${credentials.id}`, 
+                axios.get(`https://api.twitch.tv/helix/channels?broadcaster_id=${credentials.id}`, 
                 {
                     headers: {Accept: 'application/vnd.twitchtv.v5+json',
+                    'Authorization': 'Bearer ' + token,
                     'Client-ID': 'kis6cdz6giaoxfz6u0453x797jz7xx'
                     }
                 })
